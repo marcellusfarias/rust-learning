@@ -1,8 +1,11 @@
 use serde_json::{Map, Value};
 use std::fs;
 
-use crate::data::Product;
+
+
+#[path = "../../common/data.rs"]
 mod data;
+use data::Product;
 
 fn main() {
     println!("Hello, world!");
