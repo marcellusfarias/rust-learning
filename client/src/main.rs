@@ -22,13 +22,13 @@ async fn main() {
     let client = reqwest::Client::new();
 
     let resp = client
-        .post("127.0.0.1:8080")
+        .get("http://127.0.0.1:8080")
         .json("/")
         .send()
         .await
         .map_err(|e| println!("{:?}", e));
 
-    println!("{:?}", resp);
+    println!("{:?}", resp.unwrap().text().await.unwrap());
 
     // if !resp.status().is_success() {
     //     return Err(AppError::HttpBadStatus(resp.status()));
@@ -36,11 +36,11 @@ async fn main() {
     //     resp.bytes().await.map_err(|e| AppError::ReqwestError(e))
     // }
 
-    loop {
-        println!("It's a pleasure to have you here, {}!", client_name);
-        println!("Let's show you what we have for lunch today:");
-        // show_interface();
-    }
+    // loop {
+    //     println!("It's a pleasure to have you here, {}!", client_name);
+    //     println!("Let's show you what we have for lunch today:");
+    //     // show_interface();
+    // }
 
     // get list products
     // display the options

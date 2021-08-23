@@ -29,8 +29,6 @@ async fn manual_hello() -> impl Responder {
 async fn main() -> std::io::Result<()> {
     println!("Hello, world!");
 
-    
-
     let contents = fs::read_to_string("./data/products.json")
         .expect("Something went wrong reading the file");
 
