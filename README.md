@@ -1,1 +1,3 @@
 # rust-learning
+
+[DOCKERIZED CLIENT] HTTP <=> HTTP [DOCKERIZED SERVER] <=> [KAFKA CLUSTER] <=> [LOG]
