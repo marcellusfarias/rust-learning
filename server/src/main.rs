@@ -1,4 +1,4 @@
-use actix_web::{HttpServer, App, web, Responder, HttpResponse};
+use actix_web::{HttpServer, App, web};
 mod server;
 
 #[actix_web::main]
