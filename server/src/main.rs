@@ -7,8 +7,7 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(|| {
         App::new()
-            .service(server::hello)
-            .service(server::echo)
+            .route("/order", web::post().to(server::make_order))
             .route("/list_products", web::get().to(server::list_products))
     }).bind(server::SERVER_ADDRESS)?
       .run()
