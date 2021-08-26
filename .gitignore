@@ -2,3 +2,4 @@
 /server/target
 /client/target
 *Cargo.lock
+/server/data/billings*

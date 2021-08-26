@@ -1,1 +1,1 @@
-{"client_name":"Marcellus","products_ordered":{"1":{"name":"hot-dog","price":1.0}}}
+[{"client_name":"Fifi","products":[{"name":"hot-dog","price":1.0}]},{"client_name":"Marcellus","products":[{"name":"hot-dog","price":1.0}]},{"client_name":"Thomas","products":[{"name":"hot-dog","price":1.0},{"name":"hot-dog","price":1.0}]}]
