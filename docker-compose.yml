@@ -1,9 +1,14 @@
 version: '3.7'
 
 services:
-  client:
-    build:
-      context: './client'
+  # client:
+  #   build:
+  #     context: ./client
+  #   image: client_image
   server:
     build:
-      context: './server'
+      context: .
+      dockerfile: ./server/Dockerfile
+    image: server_image
+    ports: 
+      - "1065:1065"
