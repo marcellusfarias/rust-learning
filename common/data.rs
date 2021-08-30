@@ -1,7 +1,5 @@
-use serde_json::{Map};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
-use std::collections::HashMap;
 use std::fs;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -10,14 +8,14 @@ pub struct Billing {
     pub products: Vec<Product>,
 }
 
-impl Billing {
-    pub fn serialize(&self) -> serde_json::Value {
-        json!({
-            "client_name": self.client_name,
-            "products": self.products
-        })
-    }
-}
+// impl Billing {
+//     pub fn serialize(&self) -> serde_json::Value {
+//         json!({
+//             "client_name": self.client_name,
+//             "products": self.products
+//         })
+//     }
+// }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Product {
@@ -26,6 +24,7 @@ pub struct Product {
 }
 
 pub fn get_list_products() -> Vec<Product> {
+    println!("Getting list of products!");
     serde_json::from_str::<Vec<Product>>(fs::read_to_string("./data/products.json").unwrap().as_str()).unwrap()
 }
 

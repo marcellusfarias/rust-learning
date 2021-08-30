@@ -9,14 +9,15 @@ COPY ./server/Cargo.* ./
 # WORKDIR /build/src
 RUN cargo build --release
 
-# RUN ls -a
+RUN ls -a
 
 ## API Image
 FROM  gcr.io/distroless/cc-debian10 as api
- 
+
 WORKDIR /app/
 # COPY log4rs.yml /app/
 COPY --from=build /build/target/release/rust-learning /app/rust-learning
 # EXPOSE 1065
+COPY ./server/data/ ./data/
 
 CMD ["./rust-learning"]

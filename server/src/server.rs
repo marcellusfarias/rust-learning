@@ -6,7 +6,7 @@ use textcode::iso8859_1;
 mod data;
 use data::{Billing, MakeOrderRequest, Product};
 
-pub const SERVER_ADDRESS: &str = "127.0.0.1:8080";
+pub const SERVER_ADDRESS: &str = "0.0.0.0:1065";
 
 pub async fn list_products() -> impl Responder {
     let list_products = data::get_list_products();
@@ -34,7 +34,7 @@ pub async fn make_order(raw_request: web::Bytes) -> impl Responder {
     let mut list_billings: Vec<Billing> = Vec::<Billing>::new();
 
     match fs::read_to_string("./data/billings.json") {
-        Err(e) => {}
+        Err(_e) => {}
         Ok(billings) => {
             if billings.trim().len() > 0 {
                 list_billings = serde_json::from_str::<Vec<Billing>>(billings.as_str()).unwrap();
